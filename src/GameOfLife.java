@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class GameOfLife {
 
+    static int sum;
     public static void main(String[] args) {
         int[][] input = new int[][]{
                 {0, 0, 0, 0, 0, 0, 0},
@@ -32,15 +33,15 @@ public class GameOfLife {
         int[][] nextState = new int[input.length][input[0].length];
         for (int i = 0; i < input.length; i++) {
             for (int j = 0; j < input[i].length; j++) {
-                int sum = findSum(input, i, j);
+                findSum(input, i, j);
                 nextState[i][j] = ((sum == 4 && input[i][j] == 1) || sum == 3) ? 1 : 0;
             }
         }
         return nextState;
     }
 
-    private static int findSum(int[][] input, int i, int j) {
-        int sum = 0;
+    private static void findSum(int[][] input, int i, int j) {
+        sum = 0;
         for (int m = i - 1; m < i + 2; m++) {
             for (int k = j - 1; k < j + 2; k++) {
                 try {
@@ -49,6 +50,5 @@ public class GameOfLife {
                 }
             }
         }
-        return sum;
     }
 }
