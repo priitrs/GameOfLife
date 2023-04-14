@@ -3,8 +3,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameOfLifeTest {
-
-
     @Test
     void getNextState_allDeadCells() {
         int[][] input = new int[][]{
